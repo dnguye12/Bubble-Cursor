@@ -50,7 +50,7 @@ public class BubbleView extends Canvas {
         if(circle.isSelected()) {
             g2d.setColor(Color.GREEN);
         }
-        g2d.fillOval(point.x - radius, point.y - radius, 2 * radius, 2 * radius);
+        g2d.fillOval(point.x, point.y, 2 * radius, 2 * radius);
         if(circle.isSelected()) {
             g2d.setColor(Color.DARK_GRAY);
         }

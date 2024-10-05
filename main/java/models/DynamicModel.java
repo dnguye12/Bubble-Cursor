@@ -37,7 +37,7 @@ public class DynamicModel {
                 radius = rand.nextInt(CIRCLE_MAX_RADIUS) + CIRCLE_MIN_RADIUS;
                 x = rand.nextInt(SCREEN_WIDTH);
                 y = rand.nextInt(SCREEN_HEIGHT);
-                pos = new Point(x, y);
+                pos = new Point(x -radius, y - radius);
                 newCirle = new Circle(i, pos, radius);
                 for (Circle circle : this.circles) {
                     //If overlapped then generate a new circle instead
@@ -54,14 +54,6 @@ public class DynamicModel {
 
     public ArrayList<Circle> getCircles() {
         return circles;
-    }
-
-    public ArrayList<Circle> getSelectedCircles() {
-        return this.selectedCircles;
-    }
-
-    public void setSelectedCircle(ArrayList<Circle> selectedCircles) {
-        this.selectedCircles = selectedCircles;
     }
 
     public void addSelectedCircles(Circle circle) {
@@ -84,17 +76,8 @@ public class DynamicModel {
     public int getCursorSize() {
         return cursorSize;
     }
-
-    //Using step to change the cursor size, also prevent going to negative
-    public void increaseCursorSize() {
-        this.cursorSize += CURSOR_STEP;
-    }
-
-    public void decreaseCursorSize() {
-        this.cursorSize -= CURSOR_STEP;
-        if (this.cursorSize < 5) {
-            this.cursorSize = 5;
-        }
+    public void setCursorSize(int n) {
+        this.cursorSize = n;
     }
 
     public void setCursorPosition(Point cursorPosition) {
